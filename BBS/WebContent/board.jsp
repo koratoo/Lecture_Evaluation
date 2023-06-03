@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="user.BoardDAO" %>
+<%@ page import="user.BoardDTO" %>
+<%@ page import="java.util.Vector" %>
 
 <!doctype html>
 
@@ -13,6 +17,13 @@
     <link rel="stylesheet" href="./css/custom.css">
   </head>
   <body>
+  <%
+   // BoardDAO 클래스의 인스턴스 생성
+   BoardDAO boardDAO = new BoardDAO();
+
+   // getBoardList() 메서드를 사용하여 게시물 목록 검색
+   Vector<BoardDTO> boardList = boardDAO.getBoardList();
+%>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.jsp">강의평가 웹 사이트</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -40,23 +51,35 @@
         </form>
      </div>
     </nav>
-
-    <div class="container mt-3" style="max-width: 560px;">
-      <form method="post" action="./userLoginAction.jsp">
-        <div class="form-group">
-          <label>아이디</label>
-          <input type="text" name="userID" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>비밀번호</label>
-          <input type="password" name="userPassword" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-      </form>
-    </div>
-
+    <p/>
+	<div class="container">
+	  <table class="table table-bordered table-striped">
+	    <thead class="thead-dark">
+	      <tr>
+	        <th style="width: 10%;">글번호</th>
+	        <th style="width: 10%;">글쓴이</th>
+	        <th style="width: 35%;">글 제목</th>
+	        <th style="width: 20%;">등록일</th>
+	        <th style="width: 10%;">조회수</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	       <% for (int i = 0; i < boardList.size(); i++) {
+   				 BoardDTO board = boardList.get(i);
+			%>
+			    <tr>
+			        <td><%= board.getNum() %></td>
+			        <td><%= board.getTitle() %></td>
+			        <td><%= board.getUserId() %></td>
+			        <td><%= board.getPostdate() %></td>
+			        <td><%= board.getVisitcount() %></td>
+			    </tr>
+			<% } %>
+	    </tbody>
+	  </table>
+	</div>
     <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-      Copyright ⓒ 2018 나동빈 All Rights Reserved.
+      &copy; 2023 김지성 All Rights Reserved.
     </footer>
     <!-- 제이쿼리 자바스크립트 추가하기 -->
     <script src="./js/jquery.min.js"></script>
@@ -65,5 +88,4 @@
     <!-- 부트스트랩 자바스크립트 추가하기 -->
     <script src="./js/bootstrap.min.js"></script>
   </body>
-
 </html>

@@ -105,8 +105,11 @@ public class UserDAO {
 		try {
 			conn = DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,userID);
 			rs = pstmt.executeQuery();
-			return rs.getString(1);
+			while(rs.next()) {
+				return rs.getString(1);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

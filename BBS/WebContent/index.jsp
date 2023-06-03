@@ -1,139 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!doctype html>
-
 <html>
-
   <head>
-
-    <title>강의평가 웹 사이트</title>
-
+    <title>인터넷 강의평가 웹 사이트</title>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- 부트스트랩 CSS 추가하기 -->
-
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-
     <!-- 커스텀 CSS 추가하기 -->
-
     <link rel="stylesheet" href="./css/custom.css">
-
   </head>
 
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-      <a class="navbar-brand" href="index.jsp">강의평가 웹 사이트</a>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <a class="navbar-brand" href="index.jsp">인터넷 강의평가 웹 사이트</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-
         <span class="navbar-toggler-icon"></span>
-
       </button>
-
       <div class="collapse navbar-collapse" id="navbar">
-
         <ul class="navbar-nav mr-auto">
-
           <li class="nav-item active">
-
             <a class="nav-link" href="index.jsp">메인</a>
-
           </li>
-
+         
+          <li class="nav-item active">
+            <a class="nav-link" href="board.jsp">자유게시판</a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="EmailSendMain.jsp">문의하기</a>
+          </li>
           <li class="nav-item dropdown">
-
             <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">
-
               회원 관리
-
             </a>
-
             <div class="dropdown-menu" aria-labelledby="dropdown">
-
               <a class="dropdown-item" href="userLogin.jsp">로그인</a>
-
               <a class="dropdown-item" href="userRegister.jsp">회원가입</a>
-
               <a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
-
             </div>
 
           </li>
 
         </ul>
-
         <form action="./index.jsp" method="get" class="form-inline my-2 my-lg-0">
-
           <input type="text" name="search" class="form-control mr-sm-2" placeholder="내용을 입력하세요.">
-
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-
         </form>
-
       </div>
-
     </nav>
 
     <div class="container">
-
       <form method="get" action="./index.jsp" class="form-inline mt-3">
-
         <select name="lectureDivide" class="form-control mx-1 mt-2">
-
           <option value="전체">전체</option>
-
           <option value="전공">전공</option>
-
           <option value="교양">교양</option>
-
           <option value="기타">기타</option>
-
         </select>
-
         <input type="text" name="search" class="form-control mx-1 mt-2" placeholder="내용을 입력하세요.">
-
         <button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
-
         <a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">등록하기</a>
-
         <a class="btn btn-danger ml-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
-
       </form>
 
       <div class="card bg-light mt-3">
-
         <div class="card-header bg-light">
-
           <div class="row">
-
-            <div class="col-8 text-left">컴퓨터개론&nbsp;<small>나동빈</small></div>
-
+            <div class="col-8 text-left">스프링 JSP를 활용한 웹 개발실습&nbsp;<small>김재한</small></div>
             <div class="col-4 text-right">
-
               종합 <span style="color: red;">A</span>
-
             </div>
-
           </div>
-
         </div>
-
         <div class="card-body">
-
           <h5 class="card-title">
-
-            정말 좋은 강의에요.&nbsp;<small>(2017년 가을학기)</small>
-
+            정말 좋은 강의에요.&nbsp;<small>(2023년 봄)</small>
           </h5>
-
-          <p class="card-text">강의가 많이 널널해서, 솔직히 많이 배운 건 없는 것 같지만 학점도 잘 나오고 너무 좋은 것 같습니다.</p>
-
+          <p class="card-text">강의가 너무 빠르지만 도움이 됐습니다.</p>
           <div class="row">
-
             <div class="col-9 text-left">
 
               성적 <span style="color: red;">A</span>
